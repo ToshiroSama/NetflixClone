@@ -22,12 +22,8 @@ class CollectionViewTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        embedSubviews()
-        collectionConfiguration()
-    }
-    
-    private func embedSubviews() {
         contentView.addSubview(collectionView)
+        collectionConfiguration()
     }
     
     private func collectionConfiguration() {

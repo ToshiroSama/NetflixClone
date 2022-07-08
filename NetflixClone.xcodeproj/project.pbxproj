@@ -18,6 +18,7 @@
 		638F761F28780A5200FEAD30 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F761E28780A5200FEAD30 /* DownloadsViewController.swift */; };
 		638F762228780B3300FEAD30 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F762128780B3300FEAD30 /* UIColor+ext.swift */; };
 		638F76282878233C00FEAD30 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F76272878233C00FEAD30 /* CollectionViewTableViewCell.swift */; };
+		638F762A28782FAC00FEAD30 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F762928782FAC00FEAD30 /* HeroHeaderUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		638F761E28780A5200FEAD30 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		638F762128780B3300FEAD30 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		638F76272878233C00FEAD30 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
+		638F762928782FAC00FEAD30 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				638F76272878233C00FEAD30 /* CollectionViewTableViewCell.swift */,
+				638F762928782FAC00FEAD30 /* HeroHeaderUIView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				638F761D28780A3700FEAD30 /* SearchViewController.swift in Sources */,
+				638F762A28782FAC00FEAD30 /* HeroHeaderUIView.swift in Sources */,
 				638F7604287805B300FEAD30 /* MainTabBarViewController.swift in Sources */,
 				638F761F28780A5200FEAD30 /* DownloadsViewController.swift in Sources */,
 				638F7600287805B300FEAD30 /* AppDelegate.swift in Sources */,
