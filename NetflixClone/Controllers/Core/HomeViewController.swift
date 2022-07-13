@@ -19,6 +19,8 @@ class HomeViewController: UIViewController {
         return table
     }()
     
+    // MARK: - Setup UI of the main screen
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
