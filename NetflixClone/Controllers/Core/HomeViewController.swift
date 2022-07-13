@@ -59,6 +59,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         homeFeedTable.frame = view.bounds
     }
 }
