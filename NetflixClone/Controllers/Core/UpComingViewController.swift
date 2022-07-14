@@ -7,12 +7,11 @@
 
 import UIKit
 
-class UpComingViewController: UIViewController {
+class UpcomingViewController: UIViewController {
     
     private var titles: [Title] = [Title]()
     
     private let upcomingTable: UITableView = {
-        
         let table = UITableView()
         table.register(UpcomingTableViewCell.self, forCellReuseIdentifier: UpcomingTableViewCell.identifier)
         return table
@@ -20,7 +19,6 @@ class UpComingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         NavBar()
         view.addSubview(upcomingTable)
@@ -29,14 +27,12 @@ class UpComingViewController: UIViewController {
     }
     
     private func NavBar() {
-        
         title = "Upcoming"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
     }
     
     private func tableViewConfiguration() {
-        
         upcomingTable.delegate = self
         upcomingTable.dataSource = self
     }
@@ -63,7 +59,7 @@ class UpComingViewController: UIViewController {
 
 // MARK: - Table Configuration UI, Rows, Cells and so...
 
-extension UpComingViewController: UITableViewDelegate, UITableViewDataSource {
+extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titles.count

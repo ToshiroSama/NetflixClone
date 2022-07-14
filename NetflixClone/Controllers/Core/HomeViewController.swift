@@ -26,7 +26,6 @@ class HomeViewController: UIViewController {
     ]
 
     private let homeFeedTable: UITableView = {
-        
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
@@ -36,7 +35,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         configureNavBar()
@@ -59,20 +57,20 @@ class HomeViewController: UIViewController {
     }
     
     private func tableViewConfiguration() {
-        
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
+        
         let headerView = HeroHeaderUIView(frame: CGRect(
             x: 0,
             y: 0,
             width: view.bounds.width,
-            height: 450))
+            height: 450)
+        )
         homeFeedTable.tableHeaderView = headerView
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
         homeFeedTable.frame = view.bounds
     }
 }
@@ -174,9 +172,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset
-        navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
+        navigationController?.navigationBar.transform = .init(
+            translationX: 0,
+            y: min(0, -offset)
+        )
     }
 }

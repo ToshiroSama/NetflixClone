@@ -12,7 +12,6 @@ class UpcomingTableViewCell: UITableViewCell {
     static let identifier = "UpcomingTableViewCell"
     
     private let titlesPosterUIImageView: UIImageView = {
-        
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -21,15 +20,13 @@ class UpcomingTableViewCell: UITableViewCell {
     }()
     
     private let titleLabel: UILabel = {
-        
         let label = UILabel()
-        label.numberOfLines = 1
+        label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     private let playTitleButton: UIButton = {
-        
         let button = UIButton()
         let image = UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         button.setImage(image, for: .normal)
@@ -57,11 +54,12 @@ class UpcomingTableViewCell: UITableViewCell {
         
         let titleLabelConstraints = [
             titleLabel.leadingAnchor.constraint(equalTo: titlesPosterUIImageView.trailingAnchor, constant: 20),
+            titleLabel.trailingAnchor.constraint(equalTo: playTitleButton.trailingAnchor, constant: -20),
             titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         
         let playTitleButtonConstraints = [
-            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            playTitleButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             playTitleButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         

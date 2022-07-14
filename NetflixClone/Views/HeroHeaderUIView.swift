@@ -10,7 +10,6 @@ import UIKit
 class HeroHeaderUIView: UIView {
     
     private let heroImageView: UIImageView = {
-        
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -19,7 +18,6 @@ class HeroHeaderUIView: UIView {
     }()
     
     private let playButton: UIButton = {
-        
         let button = UIButton()
         button.setTitle("PLay", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
@@ -30,7 +28,6 @@ class HeroHeaderUIView: UIView {
     }()
     
     private let downloadButton: UIButton = {
-        
         let button = UIButton()
         button.setTitle("Download", for: .normal)
         button.layer.borderColor = UIColor.white.cgColor
@@ -41,7 +38,6 @@ class HeroHeaderUIView: UIView {
     }()
     
     private func addGradient() {
-        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [
             UIColor.clear.cgColor,

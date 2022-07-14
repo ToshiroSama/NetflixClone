@@ -14,7 +14,6 @@ class CollectionViewTableViewCell: UITableViewCell {
     private var titles: [Title] = [Title]()
     
     private let collectionView: UICollectionView = {
-        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 140, height: 200)
         layout.scrollDirection = .horizontal
@@ -44,7 +43,6 @@ class CollectionViewTableViewCell: UITableViewCell {
     }
     
     public func configure(with titles: [Title]) {
-        
         self.titles = titles
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
