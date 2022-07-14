@@ -18,10 +18,15 @@ enum Sections: Int {
 class HomeViewController: UIViewController {
     
     let sectionTitles = [
-        "Trending Movies", "Trending TV", "Popular", "Upcoming Movies", "Top Rated"
+        "Trending Movies",
+        "Trending TV",
+        "Popular",
+        "Upcoming Movies",
+        "Top Rated"
     ]
 
     private let homeFeedTable: UITableView = {
+        
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViewTableViewCell.self, forCellReuseIdentifier: CollectionViewTableViewCell.identifier)
         return table
@@ -31,6 +36,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .systemBackground
         view.addSubview(homeFeedTable)
         configureNavBar()
@@ -39,6 +45,7 @@ class HomeViewController: UIViewController {
     }
     
     private func configureNavBar() {
+        
         var image = UIImage(named: "netflixLogo")
         image = image?.withRenderingMode(.alwaysOriginal)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
@@ -47,13 +54,19 @@ class HomeViewController: UIViewController {
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
+        
         navigationController?.navigationBar.tintColor = .white
     }
     
     private func tableViewConfiguration() {
+        
         homeFeedTable.delegate = self
         homeFeedTable.dataSource = self
-        let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        let headerView = HeroHeaderUIView(frame: CGRect(
+            x: 0,
+            y: 0,
+            width: view.bounds.width,
+            height: 450))
         homeFeedTable.tableHeaderView = headerView
     }
     
@@ -77,9 +90,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else {
             return UITableViewCell()
         }
+        
         switch indexPath.section {
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
@@ -129,6 +144,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return UITableViewCell()
         }
+        
         return cell
     }
     
@@ -141,6 +157,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        
         guard let header = view as? UITableViewHeaderFooterView else { return }
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
         header.textLabel?.frame = CGRect(
@@ -157,6 +174,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         let defaultOffset = view.safeAreaInsets.top
         let offset = scrollView.contentOffset.y + defaultOffset
         navigationController?.navigationBar.transform = .init(translationX: 0, y: min(0, -offset))
