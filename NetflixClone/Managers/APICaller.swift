@@ -19,8 +19,10 @@ struct Constants {
 }
 
 class APICaller {
+    
     static let shared = APICaller()
     
+    // Getting the Trending Movies
     func getTrendingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/all/day?api_key=\(Constants.API_KEY)") else { return
@@ -43,6 +45,7 @@ class APICaller {
         task.resume()
     }
     
+    // Getting the Trending TV shows
     func getTrendingTvs(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/trending/tv/day?api_key=\(Constants.API_KEY)") else { return
@@ -65,6 +68,7 @@ class APICaller {
         task.resume()
     }
     
+    // Getting the Popular movies or shows
     func getPopular(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/popular?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {
@@ -88,6 +92,7 @@ class APICaller {
         task.resume()
     }
     
+    // Getting the Upcoming movies or shows
     func getUpcomingMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/upcoming?api_key=\(Constants.API_KEY)&language=en-US&page=1") else {
@@ -111,6 +116,7 @@ class APICaller {
         task.resume()
     }
     
+    // Getting the Top Rated movies or shows
     func getTopRated(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/movie/top_rated?api_key=\(Constants.API_KEY)&language=en-US&page=1") else { return
@@ -133,6 +139,7 @@ class APICaller {
         task.resume()
     }
     
+    // Discover the Movies
     func getDiscoverMovies(completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let url = URL(string: "\(Constants.baseURL)/3/discover/movie?api_key=\(Constants.API_KEY)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else { return
@@ -155,6 +162,7 @@ class APICaller {
         task.resume()
     }
     
+    // Search the Movies or shows
     func search(with query: String, completion: @escaping (Result<[Title], Error>) -> Void) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
@@ -182,7 +190,8 @@ class APICaller {
         task.resume()
     }
     
-    func getMovie(with query: String) {
+    // Getting the Movies from the Youtube
+    func getMovie(with query: String, completion: @escaping (Result<Video, Error>) -> Void) {
         
         guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {
             return
@@ -199,10 +208,10 @@ class APICaller {
             }
             
             do {
-                let results = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
-                print(results)
+                let results = try JSONDecoder().decode(YoutubeSearchResponse.self, from: data)
+                completion(.success(results.items[0]))
             } catch {
-                print(error.localizedDescription)
+                completion(.failure(APIError.failedToGetData))
             }
         }
         

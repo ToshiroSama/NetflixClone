@@ -39,8 +39,6 @@ class HomeViewController: UIViewController {
         view.addSubview(homeFeedTable)
         configureNavBar()
         tableViewConfiguration()
-        
-        APICaller.shared.getMovie(with: "Harry Potter")
     }
     
     private func configureNavBar() {
