@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
-    private var titles: [Title] = [Title]()
+    public var titles: [Title] = [Title]()
     
     private let discoverTable: UITableView = {
         let table = UITableView()
@@ -31,6 +31,10 @@ class SearchViewController: UIViewController {
         view.addSubview(discoverTable)
         tableViewConfiguration()
         
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.tintColor = .white
+        searchController.searchResultsUpdater = self
+        
         fetchDiscoverMovies()
     }
     
@@ -38,8 +42,6 @@ class SearchViewController: UIViewController {
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
-        navigationItem.searchController = searchController
-        navigationController?.navigationBar.tintColor = .white
     }
     
     private func tableViewConfiguration() {
@@ -70,6 +72,8 @@ class SearchViewController: UIViewController {
 
 // MARK: - Table Configuration UI, Rows, Cells and so...
 
+
+// TableView Delegate and DataSource
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,5 +94,33 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+}
+
+// SearchResultUpdating
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        let searchBar = searchController.searchBar
+        
+        guard let query = searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchResultsViewController else {
+                  return
+              }
+        
+        APICaller.shared.search(with: query) { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let titles):
+                    resultsController.titles = titles
+                    resultsController.searchResultsColletionView.reloadData()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
