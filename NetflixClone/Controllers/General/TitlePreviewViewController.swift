@@ -50,7 +50,7 @@ class TitlePreviewViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(overviewLabel)
         view.addSubview(downloadButton)
-        
+        navigationController?.navigationBar.tintColor = .white
         setConstraints()
     }
     
