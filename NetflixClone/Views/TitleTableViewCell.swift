@@ -7,9 +7,9 @@
 
 import UIKit
 
-class UpcomingTableViewCell: UITableViewCell {
+class TitleTableViewCell: UITableViewCell {
     
-    static let identifier = "UpcomingTableViewCell"
+    static let identifier = "TitleTableViewCell"
     
     private let titlesPosterUIImageView: UIImageView = {
         let imageView = UIImageView()
