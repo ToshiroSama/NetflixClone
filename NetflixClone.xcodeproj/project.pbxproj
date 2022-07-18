@@ -30,6 +30,8 @@
 		638F762228780B3300FEAD30 /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F762128780B3300FEAD30 /* UIColor+ext.swift */; };
 		638F76282878233C00FEAD30 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F76272878233C00FEAD30 /* CollectionViewTableViewCell.swift */; };
 		638F762A28782FAC00FEAD30 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F762928782FAC00FEAD30 /* HeroHeaderUIView.swift */; };
+		63AE04F928818A690088183A /* NetflixCloneModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63AE04F728818A690088183A /* NetflixCloneModel.xcdatamodeld */; };
+		63AE04FB28818C620088183A /* DataPersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AE04FA28818C620088183A /* DataPersistanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		638F762128780B3300FEAD30 /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
 		638F76272878233C00FEAD30 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 		638F762928782FAC00FEAD30 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
+		63AE04F828818A690088183A /* NetflixCloneModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetflixCloneModel.xcdatamodel; sourceTree = "<group>"; };
+		63AE04FA28818C620088183A /* DataPersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				638F76142878061E00FEAD30 /* App */,
 				638F76152878063F00FEAD30 /* Resources */,
 				638F760D287805B600FEAD30 /* Info.plist */,
+				63AE04F728818A690088183A /* NetflixCloneModel.xcdatamodeld */,
 			);
 			path = NetflixClone;
 			sourceTree = "<group>";
@@ -192,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				6311C085287E8AB900F9B55C /* APICaller.swift */,
+				63AE04FA28818C620088183A /* DataPersistanceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -279,11 +285,13 @@
 				635BE492287ECC9100B2C504 /* TitleTableViewCell.swift in Sources */,
 				6311C088287E8D6000F9B55C /* Title.swift in Sources */,
 				638F7604287805B300FEAD30 /* MainTabBarViewController.swift in Sources */,
+				63AE04F928818A690088183A /* NetflixCloneModel.xcdatamodeld in Sources */,
 				638F761F28780A5200FEAD30 /* DownloadsViewController.swift in Sources */,
 				638F7600287805B300FEAD30 /* AppDelegate.swift in Sources */,
 				638F761B28780A2200FEAD30 /* UpcomingViewController.swift in Sources */,
 				6358D75A287FE00D00B5F4F3 /* SearchResultsViewController.swift in Sources */,
 				638F76282878233C00FEAD30 /* CollectionViewTableViewCell.swift in Sources */,
+				63AE04FB28818C620088183A /* DataPersistanceManager.swift in Sources */,
 				6358D75C28801BF600B5F4F3 /* YoutubeSearchResponse.swift in Sources */,
 				638F762228780B3300FEAD30 /* UIColor+ext.swift in Sources */,
 				6358D7602880277100B5F4F3 /* TitlePreviewViewModel.swift in Sources */,
@@ -525,6 +533,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		63AE04F728818A690088183A /* NetflixCloneModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				63AE04F828818A690088183A /* NetflixCloneModel.xcdatamodel */,
+			);
+			currentVersion = 63AE04F828818A690088183A /* NetflixCloneModel.xcdatamodel */;
+			path = NetflixCloneModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 638F75F4287805B300FEAD30 /* Project object */;
 }
